@@ -26,15 +26,13 @@
     <string name="acerca">Acerca De</string>
 
 
-
-
     //FRAGMENT PRODUCTO
     <string name="prod">PRODUCTO</string>
     <string name="id_prod">ID</string>
     <string name="nom_prod">NOMBRE DEL PRODUCTO</string>
     <string name="precio_prod">PRECIO DEL PRODUCTO</string>
     <string name="detalle_prod">DETALLES DEL PRODUCTO</string>
-    //fragment cliente
+    //fragment clienteDAO
     <string name="clie">CLIENTE</string>
     <string name="nombre_cli">NOMBRE</string>
     <string name="apellido_cli">APELLIDOS</string>

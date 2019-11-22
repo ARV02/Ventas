@@ -2,7 +2,7 @@ package com.example.ventas_nueva.app;
 
 import android.app.Application;
 
-import com.example.ventas_nueva.Dao.Cliente;
+import com.example.ventas_nueva.Dao.ClienteDAO;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -18,7 +18,7 @@ public class MyApplication extends Application {
         super.onCreate();
         setUpRealConfig();
         Realm realm = Realm.getDefaultInstance();
-        ClienteId = getIdbyTable(realm, Cliente.class);
+        ClienteId = getIdbyTable(realm, ClienteDAO.class);
         realm.close();
     }
     private void setUpRealConfig(){

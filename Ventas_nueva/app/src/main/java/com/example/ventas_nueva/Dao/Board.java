@@ -11,7 +11,7 @@ public class Board extends RealmObject {
     private String apellidos;
     private int numero_pedido;
     private Date createdAt;
-    private RealmList <Cliente> datos;
+    private RealmList <ClienteDAO> datos;
     public Board(){
     }
 
@@ -54,11 +54,11 @@ public class Board extends RealmObject {
         return createdAt;
     }
 
-    public void setDatos(RealmList<Cliente> datos) {
+    public void setDatos(RealmList<ClienteDAO> datos) {
         this.datos = datos;
     }
 
-    public RealmList<Cliente> getDatos(){
+    public RealmList<ClienteDAO> getDatos(){
         return datos;
     }
 }

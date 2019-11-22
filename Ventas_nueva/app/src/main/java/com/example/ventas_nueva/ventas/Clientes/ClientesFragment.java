@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.ventas_nueva.Dao.Cliente;
+import com.example.ventas_nueva.Dao.ClienteDAO;
 import com.example.ventas_nueva.R;
 
 import io.realm.Realm;
@@ -59,17 +59,15 @@ public class ClientesFragment extends Fragment {
                 if(!nom.isEmpty() && !apellido.isEmpty() && !email.isEmpty() &&!numero.isEmpty()) {
                     try {
                         realmDb.beginTransaction();
-                        Number maxId = realmDb.where(Cliente.class).max("id");
+                        Number maxId = realmDb.where(ClienteDAO.class).max("id");
                         int nextId = (maxId == null) ? 1 : maxId.intValue() + 1;
-                        Cliente cliente = realmDb.createObject(Cliente.class, nextId);
-                        cliente.setNombre(nom);
-                        cliente.setApellidos(apellido);
-                        cliente.setCorreo(email);
-                        cliente.setNumero_de_telefono(numero);
-                        realmDb.insertOrUpdate(cliente);
+                        ClienteDAO clienteDAO = realmDb.createObject(ClienteDAO.class, nextId);
+                        clienteDAO.setNombre(nom);
+                        clienteDAO.setApellidos(apellido);
+                        realmDb.insertOrUpdate(clienteDAO);
                         realmDb.commitTransaction();
                         limpiar();
-                        Toast.makeText(getContext(), "Cliente registrado exitosamente", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getContext(), "ClienteDAO registrado exitosamente", Toast.LENGTH_LONG).show();
                     } catch (Exception ex) {
                         Log.d("RError", ex.toString());
                         Toast.makeText(getContext(), "Error en realm", Toast.LENGTH_SHORT).show();
